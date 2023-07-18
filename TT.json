@@ -1,0 +1,358 @@
+{
+    "Monday" : [
+        {"subject" : "Speech and Language Processing",
+         "Code" : "CSE3116", 
+         "Room" : "DB-207", 
+         "Slot": "A1/L1"
+        },
+        {"subject" : "STS",
+         "Code" : "STS3204", 
+         "Room" : "DB-207", 
+         "Slot": "F1/L2"
+        },
+        {"subject" : "Deep Learning: Principles and Practices",
+         "Code" : "CSE4088", 
+         "Room" : "DB-207", 
+         "Slot": "D1/L3"
+        },
+        {"subject" : "Natural Disaster Mitigation and Management",
+         "Code" : "CSE3116", 
+         "Room" : "HCB-104", 
+         "Slot": "TB1/L4"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "TG1/L5"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "S11/L6"
+        },
+        {"subject" : "Lunch",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "Lunch"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "A2/L31"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "F2/L32"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "D2/L33"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "TB2/L34"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "TG2/L35"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "S3/L36"
+        },
+        [1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0]
+    ],
+    "Tuesday" : [
+        {"subject" : "Natural Disaster Mitigation and Management",
+         "Code" : "CSE3116", 
+         "Room" : "HCB-104", 
+         "Slot": "B1/L7"
+        },
+        {"subject" : "Essentials of Data Analytics",
+         "Code" : "CSE3506", 
+         "Room" : "AB3-007", 
+         "Slot": "G1/L8"
+        },
+        {"subject" : "Drone Applications, Components and Assembly",
+         "Code" : "CSE2040", 
+         "Room" : "DB-206", 
+         "Slot": "E1/L9"
+        },
+        {"subject" : "Simulation and Modelling (Updated)",
+         "Code" : "CSE3102", 
+         "Room" : "DB-206", 
+         "Slot": "TC1/L10"
+        },
+        {"subject" : "TARP",
+         "Code" : "CSE1901", 
+         "Room" : "204", 
+         "Slot": "TAA1/L11"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "-/L12"
+        },
+        {"subject" : "Lunch",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "Lunch"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "B2/L37"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "G2/L38"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "E2/L39"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "TC2/L40"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "TAA2/L41"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "S1/L42"
+        },
+        [1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0]
+    ],
+    "Wednesday" : [
+        {"subject" : "Free (Updated)",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "C1/L13"
+        },
+        {"subject" : "Speech and Language Processing",
+         "Code" : "CSE3116", 
+         "Room" : "DB-207", 
+         "Slot": "A1/L14"
+        },
+        {"subject" : "STS",
+         "Code" : "STS3204", 
+         "Room" : "DB-207", 
+         "Slot": "F1/L15"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "TD1/L16"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "TBB1/L17"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "-/L18"
+        },
+        {"subject" : "Lunch",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "Lunch"
+        },
+        {"subject" : "Drone Applications, Components and Assembly (LAB)",
+        "Code" : "CSE2040", 
+         "Room" : "DB-005", 
+         "Slot": "C2/L43"
+        },
+        {"subject" : "Drone Applications, Components and Assembly (LAB)",
+        "Code" : "CSE2040", 
+         "Room" : "DB-005", 
+         "Slot": "A2/L44"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "F2/L45"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "TD2/L46"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "TBB2/L47"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "S4/L48"
+        },
+        [1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0]
+    ],
+    "Thursday" : [
+        {"subject" : "Deep Learning: Principles and Practices",
+         "Code" : "CSE4088", 
+         "Room" : "DB-207", 
+         "Slot": "D1/L19"
+        },
+        {"subject" : "Natural Disaster Mitigation and Management",
+         "Code" : "CSE3116", 
+         "Room" : "HCB-104", 
+         "Slot": "B1/L20"
+        },
+        {"subject" : "Essentials of Data Analytics",
+         "Code" : "CSE3506", 
+         "Room" : "AB3-007", 
+         "Slot": "G1/L21"
+        },
+        {"subject" : "Drone Applications, Components and Assembly",
+         "Code" : "CSE2040", 
+         "Room" : "DB-206", 
+         "Slot": "TE1/L22"
+        },
+        {"subject" : "Deep Learning: Principles and Practices (LAB)",
+        "Code" : "CSE4088", 
+         "Room" : "AB1-307", 
+         "Slot": "TCC1/L17"
+        },
+        {"subject" : "Deep Learning: Principles and Practices (LAB)",
+        "Code" : "CSE4088", 
+         "Room" : "AB1-307", 
+         "Slot": "-/L18"
+        },
+        {"subject" : "Lunch",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "Lunch"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "D2/L49"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "B2/L50"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "G2/L51"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "TE2/L52"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "TCC2/L53"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "S2/L54"
+        },
+        [1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]
+    ],
+    "Friday" : [
+        {"subject" : "Drone Applications, Components and Assembly",
+         "Code" : "CSE2040", 
+         "Room" : "DB-206", 
+         "Slot": "E1/L25"
+        },
+        {"subject" : "Simulation and Modelling (Updated)",
+         "Code" : "CSE3102", 
+         "Room" : "DB-206", 
+         "Slot": "C1/L26"
+        },
+        {"subject" : "Speech and Language Processing",
+         "Code" : "CSE3116", 
+         "Room" : "DB-207", 
+         "Slot": "TA1/L27"
+        },
+        {"subject" : "STS",
+         "Code" : "STS3204", 
+         "Room" : "DB-207", 
+         "Slot": "TF1/L28"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "TDD1/L29"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "S15/L30"
+        },
+        {"subject" : "Lunch",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "Lunch"
+        },
+        {"subject" : "Simulation and Modelling (LAB)",
+         "Code" : "CSE3102", 
+         "Room" : "AB1-205A", 
+         "Slot": "E2/L55"
+        },
+        {"subject" : "Simulation and Modelling (LAB)",
+         "Code" : "CSE3102", 
+         "Room" : "AB1-205A", 
+         "Slot": "C2/L56"
+        },
+        {"subject" : "Essentials of Data Analytics (LAB)",
+         "Code" : "CSE3506",
+         "Room" : "AB1-205B", 
+         "Slot": "TA2/L57"
+        },
+        {"subject" : "Essentials of Data Analytics (LAB)",
+         "Code" : "CSE3506", 
+         "Room" : "AB1-205B", 
+         "Slot": "TF2/L58"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "TDD2/L59"
+        },
+        {"subject" : "Free",
+         "Code" : "Nothing", 
+         "Room" : "Anywhere", 
+         "Slot": "-/L60"
+        },
+        [1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0]
+    ],
+    "Saturday" : [],
+    "Sunday" : [],
+    "Timing" : [
+    [8, 0, 8, 50],
+    [8, 55, 9, 45],
+    [9, 50, 10, 40],
+    [10, 45, 11, 35],
+    [11, 40, 12, 30],
+    [12, 35, 13, 25],
+    [13, 30, 13, 55],
+    [14, 0, 14, 50],
+    [14, 55, 15, 45],
+    [15, 50, 16, 40],
+    [16, 45, 17, 35],
+    [17, 40, 18, 30],
+    [18, 35, 19, 25]]
+}
