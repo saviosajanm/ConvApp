@@ -2,6 +2,7 @@
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import TT from './TT.json';
+//import timetablePhoto from './timetables/tt.png';
 import {
   SafeAreaView,
   ScrollView,
@@ -10,6 +11,7 @@ import {
   Text,
   useColorScheme,
   View,
+  Image,
 } from 'react-native';
 
 import {
@@ -58,7 +60,6 @@ function checkLast(cd) {
 
 
 function TimeTable(props): JSX.Element {
-    console.log("++++++++++++++++++++++++++++++++++++++++++++=");
     const now = new Date();
     const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -84,6 +85,7 @@ function TimeTable(props): JSX.Element {
     var withinGap = false;
     var afterOver = false;
     var history = [];
+    const imagePath = require('./timetables/tt.png');
 
     var lastHour = TT.Timing[checkLast(currentDay)][2];
     var lastMinute = TT.Timing[checkLast(currentDay)][3];
@@ -175,6 +177,9 @@ function TimeTable(props): JSX.Element {
                 <Text style={dayStyle}>{currentDay}</Text>
                 <Text style={timeStyle}>{currentTime}</Text>
                 <Text style={freeStyle}>Its a holiday, enjoy it bro!</Text>
+                <View style={imgstyles.container}>
+                  <Image source={require(imagePath)} style={imgstyles.image} />
+                </View>
             </View>
         );
     } else
@@ -195,6 +200,9 @@ function TimeTable(props): JSX.Element {
                 <Text style={nextStyle}>
                     {nextState ? 'It will begin in ' + (remHour > 0 ? remHour + (remHour === 1 ? ' Hour and ' : ' Hours and ') : '') + remMin + (remMin === 1 ? ' Minute from now' : ' Minutes from now'): 'You have no classes left'}
                 </Text>
+                <View style={imgstyles.container}>
+                  <Image source={require(imagePath)} style={imgstyles.image} />
+                </View>
             </View>
         );
     } else
@@ -223,6 +231,9 @@ function TimeTable(props): JSX.Element {
                 <Text style={nextStyle}>
                     {nextState ? 'It will begin in ' + (remHour > 0 ? remHour + (remHour === 1 ? ' Hour and ' : ' Hours and ') : '') + remMin + (remMin === 1 ? ' Minute from now' : ' Minutes from now'): 'You have no classes left'}
                 </Text>
+                <View style={imgstyles.container}>
+                  <Image source={require(imagePath)} style={imgstyles.image} />
+                </View>
             </View>
         );
     } else
@@ -246,6 +257,9 @@ function TimeTable(props): JSX.Element {
                 <Text style={nextStyle}>
                     {nextState ? 'It will begin in ' + (remHour > 0 ? remHour + (remHour === 1 ? ' Hour and ' : ' Hours and ') : '') + remMin + (remMin === 1 ? ' Minute from now' : ' Minutes from now'): 'You have no classes left'}
                 </Text>
+                <View style={imgstyles.container}>
+                  <Image source={require(imagePath)} style={imgstyles.image} />
+                </View>
             </View>
         );
     } else {
@@ -258,10 +272,26 @@ function TimeTable(props): JSX.Element {
                 <Text style={dayStyle}>{currentDay}</Text>
                 <Text style={timeStyle}>{currentTime}</Text>
                 <Text style={freeStyle}>You dont have any more classes at the moment.</Text>
+                <View style={imgstyles.container}>
+                  <Image source={require('../timetables/tt.png')} style={imgstyles.image} />
+                </View>
             </View>
         );
     }
 }
+
+const imgstyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  image: {
+    width: 200,
+    height: 200,
+    // Other styles as needed
+  },
+});
 
 const dateStyle = {
     color: 'cyan',

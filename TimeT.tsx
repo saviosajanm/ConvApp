@@ -3,6 +3,7 @@ import React from 'react';
 import type {PropsWithChildren} from 'react';
 import TT from './TT.json';
 import BasicTime from './BasicTimeDay.tsx';
+import { PinchGestureHandler, State } from 'react-native-gesture-handler';
 import {
   SafeAreaView,
   ScrollView,
@@ -12,6 +13,8 @@ import {
   useColorScheme,
   Dimensions,
   View,
+  Image,
+  Animated,
 } from 'react-native';
 
 import {
@@ -159,32 +162,56 @@ function getTimeDifference(h1, m1, h2, m2) {
 function TimeT(props): JSX.Element {
 
     //console.log("++++++++++++++++++++++++++++++++++++++++++++=");
+    const redsubStyle = {
+        backgroundColor: 'black',
+        color: '#ff00ff',
+        textAlign: 'center',
+        fontSize: 25,
+    };
 
     const subStyle = {
-        backgroundColor: 'darkblue',
+        backgroundColor: 'black',
+        color: 'yellow',
+        textAlign: 'center',
+        fontSize: 25,
     };
 
     const codeStyle = {
-        backgroundColor: 'darkblue',
+        backgroundColor: 'black',
+        color: 'lightgreen',
+        textAlign: 'center',
+        fontSize: 20
     };
 
     const roomStyle = {
-        backgroundColor: 'darkblue',
+        backgroundColor: 'black',
+        color: 'lightgreen',
+        textAlign: 'center',
+        fontSize: 20
     };
 
     const slotStyle = {
-        backgroundColor: 'darkblue',
+        backgroundColor: 'black',
+        color: 'lightgreen',
+        textAlign: 'center',
+        fontSize: 20,
     };
 
     const freeStyle = {
-        backgroundColor: 'darkblue',
+        backgroundColor: 'black',
+        color: 'cyan',
+        textAlign: 'center',
+        fontSize: 20
     }
 
     const nextStyle = {
-        backgroundColor: 'darkblue',
+        backgroundColor: 'black',
+        textAlign: 'center',
+        color: '#01d5fe',
+        paddingBottom: 7,
+        fontSize: 18
     }
 
-    
 
     const now = new Date();
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -195,6 +222,26 @@ function TimeT(props): JSX.Element {
     const currentMinute = now.getMinutes();
     //const currentHour = 8;
     //const currentMinute = 35;
+
+    const imgstyles = StyleSheet.create({
+      container: {
+        flex: 1,
+        paddingRight: 50,
+        paddingLeft: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+      image: {
+        marginTop: 50,
+        marginBottom: 50,
+        height: 325, // Height is set to 'undefined' to maintain aspect ratio
+        aspectRatio: 1.07, // Replace this with the actual aspect ratio of your image
+        //maxWidth: '100%',
+        //transform:[{ scale: this.scale }],
+        // Other styles as needed
+      },
+    });
+
     var currentDay = props.currentDay;
 
     if (props.currentDay === 'Sunday' || props.currentDay === 'Saturday') {
@@ -246,6 +293,13 @@ function TimeT(props): JSX.Element {
                                 <Text style={nextStyle}>
                                     {nextState ? 'It will begin in ' + (nextHour > 0 ? nextHour + (nextHour === 1 ? ' Hour and ' : ' Hours and ') : '') + nextMin + (nextMin === 1 ? ' Minute from now' : ' Minutes from now') : 'You have no classes left'}
                                 </Text>
+                                <View style={imgstyles.container}>
+                                    <Image
+                                      source={require('./timetables/tt.png')}
+                                      style={imgstyles.image}
+                                      resizeMode="contain"
+                                    />
+                                </View>
                             </View>
                         );
                     } else
@@ -277,12 +331,12 @@ function TimeT(props): JSX.Element {
                                 }}>
                                 <BasicTime currentDay={currentDay}/>
                                 <Text style={freeStyle}>{TT[currentDay][currentState].subject === 'Lunch' ? 'It is currently lunch now.' : 'Your current class is:'}</Text>
-                                <Text style={subStyle}>{TT[currentDay][currentState].subject === 'Lunch' ? '' : TT[currentDay][currentState].subject}</Text>
-                                <Text style={codeStyle}>{TT[currentDay][currentState].subject === 'Lunch' ? '' : 'Code:' + TT[currentDay][currentState].Code}</Text>
-                                <Text style={roomStyle}>{TT[currentDay][currentState].subject === 'Lunch' ? '' : 'Location:' + TT[currentDay][currentState].Room}</Text>
-                                <Text style={slotStyle}>{TT[currentDay][currentState].subject === 'Lunch' ? '' : 'Slot:' + TT[currentDay][currentState].Slot}</Text>
+                                <Text style={TT[currentDay][currentState].subject.includes("LAB")? redsubStyle : subStyle}>{TT[currentDay][currentState].subject === 'Lunch' ? '' : TT[currentDay][currentState].subject}</Text>
+                                <Text style={codeStyle}>{TT[currentDay][currentState].subject === 'Lunch' ? '' : 'Code: ' + TT[currentDay][currentState].Code}</Text>
+                                <Text style={roomStyle}>{TT[currentDay][currentState].subject === 'Lunch' ? '' : 'Location: ' + TT[currentDay][currentState].Room}</Text>
+                                <Text style={slotStyle}>{TT[currentDay][currentState].subject === 'Lunch' ? '' : 'Slot: ' + TT[currentDay][currentState].Slot}</Text>
                                 <Text style={nextStyle}>
-                                    {(TT[currentDay][currentState].subject === 'Lunch' ? 'Lunch will end in' : 'This class will end in ') + (remHour > 0 ? remHour + (remHour === 1 ? ' Hour and ' : ' Hours and ') : '') + (remMin) + (remMin === 1 ? ' Minute from now' : ' Minutes from now')}
+                                    {(TT[currentDay][currentState].subject === 'Lunch' ? 'Lunch will end in ' : 'This class will end in ') + (remHour > 0 ? remHour + (remHour === 1 ? ' Hour and ' : ' Hours and ') : '') + (remMin) + (remMin === 1 ? ' Minute from now' : ' Minutes from now')}
                                 </Text>
                                 <Text style={nextStyle}>
                                     {nextState && TT[currentDay][nextClassState].subject === 'Lunch' ?
@@ -293,6 +347,13 @@ function TimeT(props): JSX.Element {
                                 <Text style={nextStyle}>
                                     {nextState ? 'It will begin in ' + (nextHour > 0 ? nextHour + (nextHour === 1 ? ' Hour and ' : ' Hours and ') : '') + nextMin + (nextMin === 1 ? ' Minute from now' : ' Minutes from now') : 'You have no classes left'}
                                 </Text>
+                                <View style={imgstyles.container}>
+                                    <Image
+                                      source={require('./timetables/tt.png')}
+                                      style={imgstyles.image}
+                                      resizeMode="contain"
+                                    />
+                                </View>
                             </View>
                         );
                     } else
@@ -321,7 +382,7 @@ function TimeT(props): JSX.Element {
                                 }}>
                                 <BasicTime currentDay={currentDay}/>
                                 <Text style={freeStyle}>Your previous class was:</Text>
-                                <Text style={subStyle}>{TT[currentDay][previousState].subject}</Text>
+                                <Text style={TT[currentDay][previousState].subject.includes("LAB")? redsubStyle : subStyle}>{TT[currentDay][previousState].subject}</Text>
                                 <Text style={codeStyle}>Code: {TT[currentDay][previousState].Code}</Text>
                                 <Text style={roomStyle}>Location: {TT[currentDay][previousState].Room}</Text>
                                 <Text style={slotStyle}>Slot: {TT[currentDay][previousState].Slot}</Text>
@@ -331,6 +392,13 @@ function TimeT(props): JSX.Element {
                                 <Text style={nextStyle}>
                                     {nextState ? 'It will begin in ' + (nextHour > 0 ? nextHour + (nextHour === 1 ? ' Hour and ' : ' Hours and ') : '') + nextMin + (nextMin === 1 ? ' Minute from now' : ' Minutes from now') : 'You have no classes left'}
                                 </Text>
+                                <View style={imgstyles.container}>
+                                    <Image
+                                      source={require('./timetables/tt.png')}
+                                      style={imgstyles.image}
+                                      resizeMode="contain"
+                                    />
+                                </View>
                             </View>
                         );
                     } else
@@ -342,6 +410,13 @@ function TimeT(props): JSX.Element {
                                 }}>
                                 <BasicTime currentDay={currentDay}/>
                                 <Text style={freeStyle}>You dont have any more classes at the moment.</Text>
+                                <View style={imgstyles.container}>
+                                    <Image
+                                      source={require('./timetables/tt.png')}
+                                      style={imgstyles.image}
+                                      resizeMode="contain"
+                                    />
+                                </View>
                             </View>
                         );
                     } else
@@ -382,13 +457,13 @@ function TimeT(props): JSX.Element {
                                             backgroundColor: props.isDarkMode ? Colors.black : Colors.white,
                                         }}>
                                         <BasicTime currentDay={currentDay}/>
-                                        <Text style={freeStyle}>{TT[currentDay][currentState].subject === 'Lunch' ? 'It is currently lunch now.' : 'Your current class is:'}</Text>
-                                        <Text style={subStyle}>{TT[currentDay][currentState].subject === 'Lunch' ? '' : TT[currentDay][currentState].subject}</Text>
-                                        <Text style={codeStyle}>{TT[currentDay][currentState].subject === 'Lunch' ? '' : 'Code:' + TT[currentDay][currentState].Code}</Text>
-                                        <Text style={roomStyle}>{TT[currentDay][currentState].subject === 'Lunch' ? '' : 'Location:' + TT[currentDay][currentState].Room}</Text>
-                                        <Text style={slotStyle}>{TT[currentDay][currentState].subject === 'Lunch' ? '' : 'Slot:' + TT[currentDay][currentState].Slot}</Text>
+                                        <Text style={freeStyle}>{TT[currentDay][currentState].subject === 'Lunch' ? 'It is currently lunch now.' : 'Your current class is: '}</Text>
+                                        <Text style={TT[currentDay][currentState].subject.includes("LAB")? redsubStyle : subStyle}>{TT[currentDay][currentState].subject === 'Lunch' ? '' : TT[currentDay][currentState].subject}</Text>
+                                        <Text style={codeStyle}>{TT[currentDay][currentState].subject === 'Lunch' ? '' : 'Code: ' + TT[currentDay][currentState].Code}</Text>
+                                        <Text style={roomStyle}>{TT[currentDay][currentState].subject === 'Lunch' ? '' : 'Location: ' + TT[currentDay][currentState].Room}</Text>
+                                        <Text style={slotStyle}>{TT[currentDay][currentState].subject === 'Lunch' ? '' : 'Slot: ' + TT[currentDay][currentState].Slot}</Text>
                                         <Text style={nextStyle}>
-                                            {(TT[currentDay][currentState].subject === 'Lunch' ? 'Lunch will end in' : 'This class will end in ') + (remHour > 0 ? remHour + (remHour === 1 ? ' Hour and ' : ' Hours and ') : '') + (remMin) + (remMin === 1 ? ' Minute from now' : ' Minutes from now')}
+                                            {(TT[currentDay][currentState].subject === 'Lunch' ? 'Lunch will end in ' : 'This class will end in ') + (remHour > 0 ? remHour + (remHour === 1 ? ' Hour and ' : ' Hours and ') : '') + (remMin) + (remMin === 1 ? ' Minute from now' : ' Minutes from now')}
                                         </Text>
                                         <Text style={nextStyle}>
                                             {nextState && TT[currentDay][nextClassState].subject === 'Lunch' ?
@@ -399,6 +474,13 @@ function TimeT(props): JSX.Element {
                                         <Text style={nextStyle}>
                                             {nextState ? 'It will begin in ' + (nextHour > 0 ? nextHour + (nextHour === 1 ? ' Hour and ' : ' Hours and ') : '') + nextMin + (nextMin === 1 ? ' Minute from now' : ' Minutes from now') : 'You have no classes left'}
                                         </Text>
+                                        <View style={imgstyles.container}>
+                                            <Image
+                                              source={require('./timetables/tt.png')}
+                                              style={imgstyles.image}
+                                              resizeMode="contain"
+                                            />
+                                        </View>
                                     </View>
                                 );
                             }
