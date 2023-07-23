@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import type {PropsWithChildren} from 'react';
 import TT from './TT.json';
 import {
@@ -16,17 +16,27 @@ function BasicTime(props): JSX.Element {
   const now = new Date();
   const options = {year: 'numeric', month: 'long', day: 'numeric'};
   const currentDate = new Date().toLocaleDateString('en-US', options);
+  var currentDay = props.currentDay;
   //const currentDay = "Friday";
-  const currentTime = now.toLocaleTimeString('en-US', {
+
+  const ampm = now.toLocaleTimeString('en-US', {
     hour: 'numeric',
     minute: 'numeric',
     hourCycle: 'h12',
   });
+
   //const currentHour = now.getHours();
-  const currentHour = 8;
-  const currentMinute = 35;
   //const currentMinute = now.getMinutes();
-  var currentDay = props.currentDay;
+  //const currentHour = 17;
+  //const currentMinute = 35;
+  const [currentTime, setCurrentTime] = useState(new Date());
+  const updateTime = () => {
+    setCurrentTime(new Date());
+  };
+  useEffect(() => {
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   const dateHead = {
     color: 'cyan',
@@ -80,7 +90,7 @@ function BasicTime(props): JSX.Element {
         <Text style={dayText}>{currentDay}</Text>
       </View>
       <View style={timeStyle}>
-        <Text style={timeText}>{currentTime}</Text>
+        <Text style={timeText}>{ampm}</Text>
       </View>
     </ScrollView>
   );

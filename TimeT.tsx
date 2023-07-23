@@ -234,7 +234,7 @@ function TimeT(props): JSX.Element {
       image: {
         marginTop: 50,
         marginBottom: 50,
-        height: 325, // Height is set to 'undefined' to maintain aspect ratio
+        height: 300, // Height is set to 'undefined' to maintain aspect ratio
         aspectRatio: 1.07, // Replace this with the actual aspect ratio of your image
         //maxWidth: '100%',
         //transform:[{ scale: this.scale }],
@@ -250,7 +250,7 @@ function TimeT(props): JSX.Element {
                 style={{
                     backgroundColor: props.isDarkMode ? Colors.black : Colors.white,
                 }}>
-                <BasicTime />
+                <BasicTime currentDay={props.currentDay}/>
                 <Text style={freeStyle}>Its a holiday, enjoy it bro!</Text>
             </View>
         );
