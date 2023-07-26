@@ -11,15 +11,30 @@
     "createAndroidBuild": "cd android && ./gradlew clean && ./gradlew assembleRelease"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.19.1",
+    "@react-native-picker/picker": "^2.4.10",
+    "@react-navigation/native": "^6.1.7",
+    "@react-navigation/stack": "^6.3.17",
+    "@types/node": "^20.4.4",
     "dayjs": "^1.11.9",
+    "edit-json-file": "^1.7.0",
+    "fs": "^0.0.1-security",
     "jest": "^29.6.1",
     "react": "18.2.0",
     "react-native": "^0.71.3",
+    "react-native-dropdown-picker": "^5.4.6",
     "react-native-fast-image": "^8.6.3",
+    "react-native-fs": "^2.20.0",
     "react-native-gesture-handler": "^2.12.0",
     "react-native-image-progress": "^1.2.0",
     "react-native-image-zoom-viewer": "^3.0.1",
-    "react-native-webview": "^11.26.1"
+    "react-native-material-dropdown": "^0.11.1",
+    "react-native-safe-area-context": "^4.7.1",
+    "react-native-screens": "^3.22.1",
+    "react-native-sqlite-storage": "^6.0.1",
+    "react-native-webview": "^11.26.1",
+    "react-navigation-stack": "^2.10.4",
+    "rn-fetch-blob": "^0.12.0"
   },
   "devDependencies": {
     "@types/jest": "^29.2.1",
