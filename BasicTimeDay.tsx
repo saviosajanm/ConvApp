@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import type {PropsWithChildren} from 'react';
+import type { PropsWithChildren } from 'react';
 import TT from './TT.json';
 import {
   SafeAreaView,
@@ -14,7 +14,7 @@ import {
 
 function BasicTime(props): JSX.Element {
   const now = new Date();
-  const options = {year: 'numeric', month: 'long', day: 'numeric'};
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const currentDate = new Date().toLocaleDateString('en-US', options);
   var currentDay = props.currentDay;
   //const currentDay = "Friday";

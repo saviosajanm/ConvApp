@@ -1,6 +1,5 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
-//import { DrawerNavigator, DrawerItems, createAppContainer } from '@react-navigation/stack';
 import Home from '../Home';
 import Mod from '../Modifier';
 

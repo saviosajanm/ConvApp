@@ -91,7 +91,7 @@ function Mod({ navigation }, props): JSX.Element {
 
   const onValueChange = (itemValue, itemIndex) => {
     setSelectedSlot(itemValue);
-    if(itemValue == "-") {
+    if (itemValue == "-") {
       setSlotNum("")
     }
   };
@@ -158,11 +158,11 @@ function Mod({ navigation }, props): JSX.Element {
       for (const day in TT) {
         if (Object.prototype.hasOwnProperty.call(TT, day)) {
           const classSchedule = TT[day];
-          if(targetSlot.includes("-")) {
+          if (targetSlot.includes("-")) {
             targetSlot = "-";
           }
           const updatedClassSchedule: ClassSchedule = classSchedule.map((classItem) => {
-            if(classItem.Slot.includes(targetSlot)) {
+            if (classItem.Slot.includes(targetSlot)) {
               setFalseSlot(false);
               return updateClassInfo(classItem, newSubject, newCode, newRoom);
             } else {
@@ -229,26 +229,26 @@ function Mod({ navigation }, props): JSX.Element {
   return (
     <SafeAreaView style={backgroundStyle}>
       <ScrollView>
-        <View style = {pagestyles.viewer}>
-          <Text style = {pagestyles.form}>{"Enter Subject Name (Add \'(LAB)\' at the end if it is a lab class)"}:</Text>
+        <View style={pagestyles.viewer}>
+          <Text style={pagestyles.form}>{"Enter Subject Name (Add \'(LAB)\' at the end if it is a lab class)"}:</Text>
           <TextInput
             style={styles.input}
             onChangeText={onSubChange}
             placeholder={"Ignore if there is no subject"}
           />
-          <Text style = {pagestyles.form}>Enter Subject Code:</Text>
+          <Text style={pagestyles.form}>Enter Subject Code:</Text>
           <TextInput
             style={styles.input}
             onChangeText={onCodeChange}
             placeholder={"Ignore if there is no subject"}
           />
-          <Text style = {pagestyles.form}>Select Subject Room:</Text>
+          <Text style={pagestyles.form}>Select Subject Room:</Text>
           <TextInput
             style={styles.input}
             onChangeText={onRoomChange}
             placeholder={"Ignore if there is no subject"}
           />
-          <Text style = {pagestyles.form}>Select Slot:</Text>
+          <Text style={pagestyles.form}>Select Slot:</Text>
           <Picker
             selectedValue={selectedSlot}
             onValueChange={onValueChange}
@@ -257,7 +257,7 @@ function Mod({ navigation }, props): JSX.Element {
               <Picker.Item key={index} label={slot} value={slot} />
             ))}
           </Picker>
-          <Text style = {pagestyles.form}>Enter Slot number:</Text>
+          <Text style={pagestyles.form}>Enter Slot number:</Text>
           <TextInput
             style={styles.input}
             onChangeText={setSlotNum}
@@ -268,21 +268,21 @@ function Mod({ navigation }, props): JSX.Element {
 
 
       </ScrollView>
-      <View style = {pagestyles.viewer}>
-        <Text style = {pagestyles.finale}>Subject: {sub}</Text>
-        <Text style = {pagestyles.finale}>Subject Code: {code}</Text>
-        <Text style = {pagestyles.finale}>Subject Location: {room}</Text>
-        <Text style = {pagestyles.finale}>Selected Slot: {selectedSlot}{slotNum}</Text>
+      <View style={pagestyles.viewer}>
+        <Text style={pagestyles.finale}>Subject: {sub}</Text>
+        <Text style={pagestyles.finale}>Subject Code: {code}</Text>
+        <Text style={pagestyles.finale}>Subject Location: {room}</Text>
+        <Text style={pagestyles.finale}>Selected Slot: {selectedSlot}{slotNum}</Text>
       </View>
       {modded ?
         (falseSlot ?
-          (<Text style = {pagestyles.modded}>{"Slot has bee modified! You can reload the app to reflect changes..."}</Text>) :
-          (<Text style = {pagestyles.wrong}>{"INVALID SLOT!"}</Text>)
+          (<Text style={pagestyles.modded}>{"Slot has bee modified! You can reload the app to reflect changes..."}</Text>) :
+          (<Text style={pagestyles.wrong}>{"INVALID SLOT!"}</Text>)
         ) : (<Text></Text>)}
-      <Text style = {pagestyles.buttonSpacer}></Text>
-      <Button title="Modify Slot" onPress={pressHandler}/>
-      <Text style = {pagestyles.buttonSpacer}></Text>
-      <Button title="Back to Home" onPress={pressHandlerHome}/>
+      <Text style={pagestyles.buttonSpacer}></Text>
+      <Button title="Modify Slot" onPress={pressHandler} />
+      <Text style={pagestyles.buttonSpacer}></Text>
+      <Button title="Back to Home" onPress={pressHandlerHome} />
     </SafeAreaView>
   );
 }

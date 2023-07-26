@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import type {PropsWithChildren} from 'react';
+import type { PropsWithChildren } from 'react';
 import Navigator from './routes/homeStack';
 import Home from './Home';
 import {
