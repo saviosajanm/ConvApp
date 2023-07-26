@@ -1,4 +1,4 @@
-# ConvApp
+# ConvApp (CONVenience APP)
 
 ---
 
