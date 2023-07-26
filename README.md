@@ -2,5 +2,8 @@
 
 ---
 
-## App Preview:
-![App Screenshot](https://github.com/saviosajanm/ConvApp/blob/main/Screenshot_2023_0718_165540.jpg)
+## App Home Screen Preview:
+![App Screenshot](https://github.com/saviosajanm/ConvApp/blob/main/home_screenshot.png)
+
+## App Time-Table edit screen preview:
+![App Screenshot](https://github.com/saviosajanm/ConvApp/blob/main/edit_screenshot.png)
