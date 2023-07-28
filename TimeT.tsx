@@ -227,11 +227,23 @@ function TimeT(props): JSX.Element {
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const currentDate = new Date().toLocaleDateString('en-US', options);
   //const currentDay = "Friday";
-  const currentTime = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hourCycle: 'h12' });
+  const [currentHour, setCurrentHour] = useState(new Date());
+  const [currentMinute, setCurrentMinute] = useState(new Date());
+  const updateTime = () => {
+    const now = new Date();
+    setCurrentHour(now.getHours());
+    setCurrentMinute(now.getMinutes());
+  };
+  useEffect(() => {
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  //const currentTime = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hourCycle: 'h12' });
   //const currentHour = now.getHours();
   //const currentMinute = now.getMinutes();
-  const currentHour = 14;
-  const currentMinute = 41;
+  //const currentHour = 8;
+  //const currentMinute = 41;
 
 
   var currentDay = props.currentDay;
@@ -275,6 +287,7 @@ function TimeT(props): JSX.Element {
                 backgroundColor: props.isDarkMode ? Colors.black : Colors.white,
               }}>
               <BasicTime currentDay={currentDay} />
+              
               <Text style={freeStyle}>Mornin! Seems you've got {st.filter(x => x == 1).length == 1 ? "NO" : ""} class today!</Text>
               <Text style={nextStyle}>
                 {TT[currentDay][nextClassState].subject === 'Lunch' ?

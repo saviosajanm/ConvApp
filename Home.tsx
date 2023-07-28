@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import type {PropsWithChildren} from 'react';
 import TT from './TT.json';
+import TableView from './TableView'
+import { Navigation } from '@react-navigation/native';
 
 import {
   RefreshControl,
@@ -13,6 +15,8 @@ import {
   View,
   Button,
   ActivityIndicator,
+  Pressable,
+  Dimensions,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -62,6 +66,7 @@ function Section({children, title}: SectionProps): JSX.Element {
 }
 
 function Home({ navigation }): JSX.Element {
+
   const isDarkMode = useColorScheme() === 'dark';
   const now = new Date();
   const days = [
@@ -75,7 +80,7 @@ function Home({ navigation }): JSX.Element {
   ];
   const currentDay = days[now.getDay()];
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.black : Colors.lighter,
+    backgroundColor: 'black',
     height: '100%',
   };
   const [refreshing, setRefreshing] = React.useState(false);
@@ -145,6 +150,8 @@ function Home({ navigation }): JSX.Element {
     getData().then((data) => {
       if (data !== null) {
         // Data fetched successfully, update the state
+        //console.log(data);
+
         setTimeTData(data);
       } else {
         console.log('No data found for the key.');
@@ -153,6 +160,7 @@ function Home({ navigation }): JSX.Element {
   }, []);
 
   //console.log("---------------------------------", timeTData);
+  //console.log("---------------------------------", TT);
   return (
     <SafeAreaView style={backgroundStyle}>
       <ScrollView style={mainStyle} contentContainerStyle={styles.scrollView}
@@ -162,38 +170,70 @@ function Home({ navigation }): JSX.Element {
 
         {timeTData ? (
           // Render the <TimeT> component with the fetched data
-          <TimeT isDarkMode={isDarkMode} currentDay={currentDay} TT={timeTData} />
+          <View>
+            <TimeT isDarkMode={isDarkMode} currentDay={currentDay} TT={timeTData} />
+            <TableView currentDay={currentDay} TT={timeTData}/>
+          </View>
+
         ) : (
           // Render loading indicator or other content while waiting for data
           <ActivityIndicator size="large" color="#0000ff" />
         )}
 
       </ScrollView>
-      <Button title="Edit Timetable" onPress={pressHandler}/>
+      <View>
+        <Pressable style={styles.button} onPress={pressHandler}>
+          <Text style={styles.buttonText}>{"Edit Timetable"}</Text>
+        </Pressable>
+      </View>
     </SafeAreaView>
   );
 }
+
+//<TableView currentDay={"Thursday"} TT={timeTData}/>
 
 const mainStyle = {
   margin: '5%',
 };
 
+const windowWidth = Dimensions.get('window').width * 9 / 10;
+
 const styles = StyleSheet.create({
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
+    backgroundColor: 'black'
   },
   sectionTitle: {
     fontSize: 24,
     fontWeight: '600',
+    backgroundColor: 'black'
   },
   sectionDescription: {
     marginTop: 8,
     fontSize: 18,
     fontWeight: '400',
+    backgroundColor: 'black'
   },
   highlight: {
     fontWeight: '700',
+    backgroundColor: 'black'
+  },
+  button: {
+    borderWidth: 2,
+    borderColor: 'limegreen',
+    //backgroundColor: 'limegreen',
+    borderRadius: 75,
+    width: windowWidth,
+    height: 35,
+    overflow: 'hidden',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  },
+  buttonText: {
+    textAlign: 'center',
+    color: 'limegreen',
+    fontSize: 20,
   },
 });
 

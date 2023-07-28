@@ -5,10 +5,16 @@ import Mod from '../Modifier';
 
 const screens = {
   Home: {
-    screen: Home
+    screen: Home,
+    navigationOptions: {
+      headerShown: false, // Hide the header for the TimeTable screen
+    },
   },
   TimeTable: {
-    screen: Mod
+    screen: Mod,
+    navigationOptions: {
+      headerShown: false, // Hide the header for the TimeTable screen
+    },
   }
 }
 

@@ -1,13 +1,9 @@
 import React, { useState } from 'react';
 import type { PropsWithChildren } from 'react';
-//import TT from './TT.json';
 import BasicTime from './BasicTimeDay.tsx';
 import { DropDownPicker } from 'react-native-dropdown-picker';
 import { PinchGestureHandler, State } from 'react-native-gesture-handler';
-//import RNFS from 'react-native-fs';
-import fs from 'fs';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-const filePath = './TT.json';
 import {
   SafeAreaView,
   ScrollView,
@@ -21,6 +17,7 @@ import {
   TextInput,
   Button,
   TouchableOpacity,
+  Pressable,
 } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 
@@ -99,6 +96,7 @@ function Mod({ navigation }, props): JSX.Element {
   const [modded, setModded] = useState(false);
   const onMod = () => {
     setModded(true);
+    alert("Slot has bee modified! You can reload the app to reflect changes...")
   }
 
   const storeData = async (value) => {
@@ -196,6 +194,7 @@ function Mod({ navigation }, props): JSX.Element {
   const pressHandlerHome = () => {
     navigation.navigate("Home");
   }
+  const windowWidth = Dimensions.get('window').width * 9 / 10;
 
   const pagestyles = StyleSheet.create({
     viewer: {
@@ -224,7 +223,41 @@ function Mod({ navigation }, props): JSX.Element {
     buttonSpacer: {
       marginBottom: -13
     },
+    button: {
+      borderWidth: 2,
+      borderColor: '#f2241d',
+      //backgroundColor: 'limegreen',
+      borderRadius: 75,
+      width: windowWidth,
+      height: 35,
+      overflow: 'hidden',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
+    buttonText: {
+      textAlign: 'center',
+      color: '#f2241d',
+      fontSize: 20,
+    },
+    buttonBack: {
+      borderWidth: 2,
+      borderColor: 'limegreen',
+      //backgroundColor: 'limegreen',
+      borderRadius: 75,
+      width: windowWidth,
+      height: 35,
+      overflow: 'hidden',
+      marginLeft: 'auto',
+      marginRight: 'auto',
+    },
+    buttonBackText: {
+      textAlign: 'center',
+      color: 'limegreen',
+      fontSize: 20,
+    },
   });
+
+  const [isVisible, setIsVisible] = useState(false);
 
   return (
     <SafeAreaView style={backgroundStyle}>
@@ -274,17 +307,25 @@ function Mod({ navigation }, props): JSX.Element {
         <Text style={pagestyles.finale}>Subject Location: {room}</Text>
         <Text style={pagestyles.finale}>Selected Slot: {selectedSlot}{slotNum}</Text>
       </View>
-      {modded ?
-        (falseSlot ?
-          (<Text style={pagestyles.modded}>{"Slot has bee modified! You can reload the app to reflect changes..."}</Text>) :
-          (<Text style={pagestyles.wrong}>{"INVALID SLOT!"}</Text>)
-        ) : (<Text></Text>)}
+
       <Text style={pagestyles.buttonSpacer}></Text>
-      <Button title="Modify Slot" onPress={pressHandler} />
+      <Pressable style={pagestyles.button} onPress={pressHandler}>
+        <Text style={pagestyles.buttonText}>{"Modify Slot"}</Text>
+      </Pressable>
       <Text style={pagestyles.buttonSpacer}></Text>
-      <Button title="Back to Home" onPress={pressHandlerHome} />
+      <Pressable style={pagestyles.buttonBack} onPress={pressHandlerHome}>
+        <Text style={pagestyles.buttonBackText}>{"Back to Home"}</Text>
+      </Pressable>
     </SafeAreaView>
   );
 }
+
+/*
+{modded ?
+  (falseSlot ?
+    (<Text style={pagestyles.modded}>{"Slot has bee modified! You can reload the app to reflect changes..."}</Text>) :
+    (<Text style={pagestyles.wrong}>{"INVALID SLOT!"}</Text>)
+  ) : (<Text></Text>)}
+*/
 
 export default Mod;
