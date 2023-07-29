@@ -23,6 +23,7 @@ As the app is currently in its beta phase, I acknowledge that there might be a f
 
 Download Now:
 Are you ready to revolutionize your student life at VIT Chennai? Don't wait any longer! You can download ConvApp from the official repository here: [ConvApp Releases](https://github.com/saviosajanm/ConvApp/releases)
+
 Your feedback is invaluable, and I hope ConvApp becomes an indispensable tool in your academic journey, making every day a breeze!
 
 ## App Home Screen Preview:
